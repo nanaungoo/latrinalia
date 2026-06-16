@@ -1,0 +1,30 @@
+{
+  "name": "latrinalia",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Digital toilet graffiti wall — a PWA for anonymous stall-side scribbling",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server/index.js",
+    "client": "vite --port 3000",
+    "build": "vite build",
+    "preview": "vite preview",
+    "db:init": "node scripts/db-init.js",
+    "db:reset": "node scripts/db-init.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-draggable": "^4.4.6",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^8.2.2",
+    "vite": "^5.4.0"
+  }
+}
