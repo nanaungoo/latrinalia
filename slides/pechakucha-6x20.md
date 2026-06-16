@@ -41,6 +41,6 @@ This project proves that real-time, location-based social apps don't need cloud 
 
 <!-- slide 6 -->
 # Done checklist
-- [ ] repo public
-- [ ] MCP + skill + agent used
-- [ ] report.md in team repo
+- [X] repo public
+- [X] MCP + skill + agent used
+- [x] report.md in team repo
