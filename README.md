@@ -1,6 +1,13 @@
 # 🚽 Latrinalia — Digital Toilet Graffiti Wall
 
+[![Live](https://img.shields.io/badge/Live-🟢_Online-brightgreen?style=flat-square)](https://latrinalia-production.up.railway.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
+
 A Progressive Web App that brings the age-old culture of anonymous toilet graffiti into the digital age. Drop text stickers on virtual stall doors, drag them around, and let the next person find your message.
+
+**🔗 Live:** [latrinalia-production.up.railway.app](https://latrinalia-production.up.railway.app)
 
 ## Screenshots
 
@@ -100,6 +107,27 @@ This project uses three Claude Code features, all with real paths in the repo:
 - **MCP** — [`.mcp.json`](.mcp.json): SQLite server so Claude can query/modify the database directly
 - **Skill** — [`.claude/skills/graffiti-wall/SKILL.md`](.claude/skills/graffiti-wall/SKILL.md): Bootstraps stalls, seeds test data, runs janitor mode, and handles migrations
 - **Agent** — [`.claude/agents/sticker-reviewer.md`](.claude/agents/sticker-reviewer.md): Content moderation via haiku model — reviews graffiti and returns `keep | warn | remove` verdicts
+
+## Deployment
+
+This project is deployed on [Railway](https://railway.app). Pushes to `main` auto-deploy.
+
+```bash
+# Deploy manually via CLI
+railway up
+
+# Or just push to GitHub
+git push origin main
+```
+
+**Environment variables:**
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `PORT` | Server port | `3001` (Railway sets this automatically) |
+| `DB_PATH` | SQLite database path | `./latrinalia.db` |
+| `CORS_ORIGIN` | Allowed CORS origin | `*` |
+| `NODE_ENV` | Environment | `development` |
 
 ## Building for production
 
