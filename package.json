@@ -2,6 +2,7 @@
   "name": "latrinalia",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "description": "Digital toilet graffiti wall — a PWA for anonymous stall-side scribbling",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
