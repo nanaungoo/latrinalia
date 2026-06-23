@@ -200,6 +200,13 @@ app.post('/api/toilets/:toiletId/janitor', (req, res) => {
 // Serve static frontend in production
 app.use(express.static(path.join(__dirname, '..', 'dist')));
 
+// SPA catch-all — serve index.html for any non-API route
+app.get('*', (req, res) => {
+  if (!req.path.startsWith('/api')) {
+    res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`🚽 Latrinalia server running on http://localhost:${PORT}`);
 });

@@ -8,6 +8,7 @@
     "server": "node server/index.js",
     "client": "vite --port 3000",
     "build": "vite build",
+    "start": "node server/index.js",
     "preview": "vite preview",
     "db:init": "node scripts/db-init.js",
     "db:reset": "node scripts/db-init.js"
