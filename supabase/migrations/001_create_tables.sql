@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS stickers (
     x_position INTEGER NOT NULL,
     y_position INTEGER NOT NULL,
     angle INTEGER DEFAULT 0,
+    delete_token TEXT,
     created_at TEXT DEFAULT (datetime('now'))
 );
 

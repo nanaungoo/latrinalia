@@ -22,8 +22,8 @@ export async function addSticker(toiletId, sticker) {
   return res.json();
 }
 
-export async function deleteSticker(id) {
-  const res = await fetch(`${API_BASE}/stickers/${id}`, {
+export async function deleteSticker(id, deleteToken) {
+  const res = await fetch(`${API_BASE}/stickers/${id}?delete_token=${encodeURIComponent(deleteToken)}`, {
     method: 'DELETE',
   });
   if (!res.ok) throw new Error('Failed to delete sticker');

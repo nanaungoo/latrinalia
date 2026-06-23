@@ -2,6 +2,12 @@
 
 A Progressive Web App that brings the age-old culture of anonymous toilet graffiti into the digital age. Drop text stickers on virtual stall doors, drag them around, and let the next person find your message.
 
+## Screenshots
+
+| Lobby | Graffiti Wall | Compose |
+|-------|---------------|---------|
+| ![Lobby](public/screenshot-lobby.png) | ![Stall](public/screenshot-stall.png) | ![Compose](public/screenshot-compose.png) |
+
 ## How it works
 
 1. Pick a stall from the lobby

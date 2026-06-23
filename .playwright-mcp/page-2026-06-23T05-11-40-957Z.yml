@@ -1,0 +1,66 @@
+- generic [ref=e17]:
+  - generic [ref=e18]:
+    - button "← Lobby" [ref=e19] [cursor=pointer]
+    - 'heading "Stall #1 — Downtown" [level=2] [ref=e20]'
+    - button "🧹" [ref=e21] [cursor=pointer]
+  - generic [ref=e22]:
+    - generic [ref=e23]:
+      - button "×" [ref=e24] [cursor=pointer]
+      - generic [ref=e25]: why are you reading this?
+      - generic [ref=e26]: 6/16/2026
+    - generic [ref=e27]:
+      - button "×" [ref=e28] [cursor=pointer]
+      - generic [ref=e29]: for a good time call... nobody
+      - generic [ref=e30]: 6/16/2026
+    - generic [ref=e31]:
+      - button "×" [ref=e32] [cursor=pointer]
+      - generic [ref=e33]: I was here. You were too. We are all here.
+      - generic [ref=e34]: 6/16/2026
+    - generic [ref=e35]:
+      - button "×" [ref=e36] [cursor=pointer]
+      - generic [ref=e37]: FREE HUGS (while seated)
+      - generic [ref=e38]: 6/16/2026
+    - generic [ref=e39]:
+      - button "×" [ref=e40] [cursor=pointer]
+      - generic [ref=e41]: the void stares back
+      - generic [ref=e42]: 6/16/2026
+    - generic [ref=e43]:
+      - button "×" [ref=e44] [cursor=pointer]
+      - generic [ref=e45]: KILROY WAS HERE
+      - generic [ref=e46]: 6/16/2026
+    - generic [ref=e47]:
+      - button "×" [ref=e48] [cursor=pointer]
+      - generic [ref=e49]: poetry is just words that forgot their job
+      - generic [ref=e50]: 6/16/2026
+    - generic [ref=e51]:
+      - button "×" [ref=e52] [cursor=pointer]
+      - generic [ref=e53]: → the exit is that way
+      - generic [ref=e54]: 6/16/2026
+    - generic [ref=e55]:
+      - button "×" [ref=e56] [cursor=pointer]
+      - generic [ref=e57]: read a book lately? me neither
+      - generic [ref=e58]: 6/16/2026
+    - generic [ref=e59]:
+      - button "×" [ref=e60] [cursor=pointer]
+      - generic [ref=e61]: This wall has seen things.
+      - generic [ref=e62]: 6/16/2026
+  - generic [ref=e64]:
+    - textbox "Write your graffiti..." [active] [ref=e65]
+    - generic [ref=e66]:
+      - generic [ref=e67]:
+        - button "Marker" [ref=e68] [cursor=pointer]
+        - button "Scratched" [ref=e69] [cursor=pointer]
+        - button "Cursive" [ref=e70] [cursor=pointer]
+        - button "Stencil" [ref=e71] [cursor=pointer]
+      - generic [ref=e72]:
+        - button [ref=e73] [cursor=pointer]
+        - button [ref=e74] [cursor=pointer]
+        - button [ref=e75] [cursor=pointer]
+        - button [ref=e76] [cursor=pointer]
+        - button [ref=e77] [cursor=pointer]
+        - button [ref=e78] [cursor=pointer]
+        - button [ref=e79] [cursor=pointer]
+        - button [ref=e80] [cursor=pointer]
+    - generic [ref=e81]:
+      - button "Stick it! 📌" [disabled] [ref=e82]
+      - button "Nah" [ref=e83] [cursor=pointer]

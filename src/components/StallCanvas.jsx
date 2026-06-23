@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { fetchStickers, addSticker, deleteSticker, runJanitor } from '../lib/api';
 import StickerForm from './StickerForm';
 import DraggableSticker from './DraggableSticker';
@@ -7,6 +7,8 @@ export default function StallCanvas({ toilet, fonts, colors, onLeave }) {
   const [stickers, setStickers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showJanitor, setShowJanitor] = useState(false);
+  // Store delete tokens (keyed by sticker id) — only tokens from this session
+  const deleteTokensRef = useRef({});
 
   const loadStickers = useCallback(() => {
     setLoading(true);
@@ -22,12 +24,22 @@ export default function StallCanvas({ toilet, fonts, colors, onLeave }) {
   }, [loadStickers]);
 
   const handleAdd = async (data) => {
-    const sticker = await addSticker(toilet.id, data);
-    setStickers((prev) => [...prev, sticker]);
+    const result = await addSticker(toilet.id, data);
+    // Store the delete token so the creator can delete this sticker
+    if (result.delete_token) {
+      deleteTokensRef.current[result.id] = result.delete_token;
+    }
+    setStickers((prev) => [...prev, result]);
   };
 
   const handleDelete = async (id) => {
-    await deleteSticker(id);
+    const token = deleteTokensRef.current[id];
+    if (!token) {
+      alert('You can only delete stickers you created in this session.');
+      return;
+    }
+    await deleteSticker(id, token);
+    delete deleteTokensRef.current[id];
     setStickers((prev) => prev.filter((s) => s.id !== id));
   };
 
@@ -74,6 +86,7 @@ export default function StallCanvas({ toilet, fonts, colors, onLeave }) {
             key={s.id}
             sticker={s}
             fonts={fonts}
+            canDelete={!!deleteTokensRef.current[s.id]}
             onDelete={() => handleDelete(s.id)}
           />
         ))}

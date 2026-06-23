@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
-import { deleteSticker } from '../lib/api';
 
-export default function DraggableSticker({ sticker, fonts, onDelete }) {
+export default function DraggableSticker({ sticker, fonts, canDelete, onDelete }) {
   const [pos, setPos] = useState({
     x: sticker.x_position,
     y: sticker.y_position,
@@ -34,15 +33,10 @@ export default function DraggableSticker({ sticker, fonts, onDelete }) {
     setDragging(false);
   };
 
-  const handleDelete = async (e) => {
+  const handleDelete = (e) => {
     e.stopPropagation();
     if (confirm('Rip this sticker off the wall?')) {
-      try {
-        await deleteSticker(sticker.id);
-        onDelete();
-      } catch {
-        alert('Could not remove sticker.');
-      }
+      onDelete();
     }
   };
 
@@ -63,9 +57,11 @@ export default function DraggableSticker({ sticker, fonts, onDelete }) {
       onPointerUp={handlePointerUp}
       onPointerLeave={handlePointerUp}
     >
-      <button className="sticker-delete" onClick={handleDelete} title="Remove">
-        ×
-      </button>
+      {canDelete && (
+        <button className="sticker-delete" onClick={handleDelete} title="Remove">
+          ×
+        </button>
+      )}
       <span className="sticker-text">{sticker.text_content}</span>
       <span className="sticker-time">
         {new Date(sticker.created_at).toLocaleDateString()}
