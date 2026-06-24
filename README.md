@@ -11,9 +11,9 @@ A Progressive Web App that brings the age-old culture of anonymous toilet graffi
 
 ## Screenshots
 
-| Lobby | Graffiti Wall | Compose |
-|-------|---------------|---------|
-| ![Lobby](public/screenshot-lobby.png) | ![Stall](public/screenshot-stall.png) | ![Compose](public/screenshot-compose.png) |
+| Lobby | Stall Wall | Compose | Janitor | Clean Stall |
+|-------|------------|---------|---------|-------------|
+| ![Lobby](public/screenshot-lobby.png) | ![Stall](public/screenshot-stall.png) | ![Compose](public/screenshot-compose.png) | ![Janitor](public/screenshot-janitor.png) | ![Stall 2](public/screenshot-stall2.png) |
 
 ## How it works
 

@@ -5,4 +5,4 @@ dist/
 *.db-wal
 .env
 .playwright-mcp/
-*.png
+/*.png
