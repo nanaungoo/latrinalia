@@ -44,7 +44,8 @@ export default {
       } else if (path === '/api/analytics') {
         response = await handleAnalytics(request, env);
       } else {
-        return new Response('Not Found', { status: 404, headers: corsHeaders });
+        // Serve static assets from dist/ for non-API routes
+        return env.ASSETS.fetch(request);
       }
 
       // Add CORS headers to response
