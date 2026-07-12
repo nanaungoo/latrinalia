@@ -64,8 +64,31 @@ body {
 
 .tagline {
   color: #999;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-style: italic;
+}
+
+/* ---- Visit Counter ---- */
+.visit-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 102, 0, 0.15);
+  border: 1px solid rgba(255, 102, 0, 0.3);
+  border-radius: 20px;
+}
+
+.visit-count {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ff6600;
+}
+
+.visit-label {
+  font-size: 0.8rem;
+  color: #999;
 }
 
 .toilet-list {

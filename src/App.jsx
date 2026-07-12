@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchToilets, trackEvent } from './lib/api';
+import { fetchToilets, trackEvent, getAnalytics } from './lib/api';
 import StallCanvas from './components/StallCanvas';
 import WelcomePopup from './components/WelcomePopup';
 
@@ -17,12 +17,16 @@ export default function App() {
   const [toilets, setToilets] = useState([]);
   const [activeToilet, setActiveToilet] = useState(null);
   const [error, setError] = useState(null);
+  const [visitCount, setVisitCount] = useState(null);
 
   useEffect(() => {
     fetchToilets()
       .then(setToilets)
       .catch(() => setError('Could not reach the server. Is it running?'));
     trackEvent('page_view', { page: 'lobby' });
+    getAnalytics()
+      .then((data) => setVisitCount(data.totalEvents))
+      .catch(() => {});
   }, []);
 
   if (error) {
@@ -42,6 +46,12 @@ export default function App() {
         <div className="lobby">
           <h1>🚽 Latrinalia</h1>
           <p className="tagline">Every stall has a story. Choose one.</p>
+          {visitCount !== null && (
+            <div className="visit-counter">
+              <span className="visit-count">{visitCount.toLocaleString()}</span>
+              <span className="visit-label">visits</span>
+            </div>
+          )}
           <div className="toilet-list">
             {toilets.map((t) => (
               <button key={t.id} className="toilet-card" onClick={() => {
