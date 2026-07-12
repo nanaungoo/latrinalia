@@ -22,9 +22,20 @@ A Progressive Web App that brings the age-old culture of anonymous toilet graffi
 
 ## Screenshots
 
-| Lobby | Stall Wall | Compose | Janitor | Clean Stall |
-|-------|------------|---------|---------|-------------|
-| ![Lobby](public/screenshot-lobby.png) | ![Stall](public/screenshot-stall.png) | ![Compose](public/screenshot-compose.png) | ![Janitor](public/screenshot-janitor.png) | ![Stall 2](public/screenshot-stall2.png) |
+> Screenshots captured with Chrome DevTools MCP at fixed resolutions.
+> **Desktop:** 1280 × 800 · **Mobile:** 390 × 844
+
+### Desktop (1280 × 800)
+
+| Lobby | Stall Wall | Compose | Janitor | Another Stall |
+|-------|------------|---------|---------|---------------|
+| ![Lobby](public/screenshot-lobby-desktop.png) | ![Stall](public/screenshot-stall-desktop.png) | ![Compose](public/screenshot-compose-desktop.png) | ![Janitor](public/screenshot-janitor-desktop.png) | ![Stall 2](public/screenshot-stall2-desktop.png) |
+
+### Mobile (390 × 844)
+
+| Lobby | Stall Wall | Compose | Janitor | Another Stall |
+|-------|------------|---------|---------|---------------|
+| ![Lobby](public/screenshot-lobby-mobile.png) | ![Stall](public/screenshot-stall-mobile.png) | ![Compose](public/screenshot-compose-mobile.png) | ![Janitor](public/screenshot-janitor-mobile.png) | ![Stall 2](public/screenshot-stall2-mobile.png) |
 
 ## How it works
 
