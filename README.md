@@ -123,24 +123,21 @@ This project uses three Claude Code features, all with real paths in the repo:
 
 ## Deployment
 
-This project is deployed on [Railway](https://railway.app). Pushes to `main` auto-deploy.
+This project is deployed on [Cloudflare Workers](https://workers.cloudflare.com). Pushes to `main` auto-deploy via GitHub Actions.
 
 ```bash
 # Deploy manually via CLI
-railway up
+npx wrangler deploy --config wrangler.toml
 
 # Or just push to GitHub
 git push origin main
 ```
 
-**Environment variables:**
+**Environment variables (Cloudflare):**
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `PORT` | Server port | `3001` (Railway sets this automatically) |
-| `DB_PATH` | SQLite database path | `./latrinalia.db` |
-| `CORS_ORIGIN` | Allowed CORS origin | `*` |
-| `NODE_ENV` | Environment | `development` |
+| `DB` | D1 Database binding | `latrinalia-db` |
 
 ## Building for production
 
@@ -149,4 +146,4 @@ npm run build     # Outputs to dist/
 npm run preview   # Preview the production build locally
 ```
 
-The Express server also serves `dist/` as static files, so a single `node server/index.js` runs the full app in production.
+The Cloudflare Worker serves the API and static assets directly.
