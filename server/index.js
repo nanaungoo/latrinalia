@@ -54,6 +54,16 @@ db.exec(`
   );
 
   CREATE INDEX IF NOT EXISTS idx_stickers_toilet_id ON stickers(toilet_id);
+
+  CREATE TABLE IF NOT EXISTS analytics (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_type TEXT NOT NULL,
+    event_data TEXT,
+    created_at TEXT DEFAULT (datetime('now'))
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_analytics_event_type ON analytics(event_type);
+  CREATE INDEX IF NOT EXISTS idx_analytics_created_at ON analytics(created_at);
 `);
 
 // Ensure default toilets exist
@@ -72,7 +82,7 @@ insertToilet.run('stall-2', 'Stall #2 — The Bar');
 insertToilet.run('stall-3', 'Stall #3 — Gas Station');
 
 // ---- Validation helpers ----
-const VALID_FONTS = ['marker', 'scratched', 'cursive', 'stencil'];
+const VALID_FONTS = ['marker', 'scratched', 'cursive', 'stencil', 'myanmar'];
 const HEX_COLOR_RE = /^#[0-9a-f]{6}$/i;
 const MAX_TEXT_LENGTH = 500;
 
@@ -196,6 +206,45 @@ app.post('/api/toilets/:toiletId/janitor', (req, res) => {
     toilet_id: req.params.toiletId,
     cutoff,
     message: `Janitor swept ${count.count} sticker(s) from ${req.params.toiletId}.`,
+  });
+});
+
+// ---- Analytics ----
+
+// Track an event
+app.post('/api/analytics', (req, res) => {
+  const { event_type, event_data } = req.body;
+
+  if (!event_type || typeof event_type !== 'string') {
+    return res.status(400).json({ error: 'event_type is required' });
+  }
+
+  db.prepare('INSERT INTO analytics (event_type, event_data) VALUES (?, ?)').run(
+    event_type,
+    event_data ? JSON.stringify(event_data) : null
+  );
+
+  res.status(201).json({ tracked: true });
+});
+
+// Get analytics summary
+app.get('/api/analytics', (_req, res) => {
+  const totalStickers = db.prepare('SELECT COUNT(*) as count FROM stickers').get().count;
+  const totalToilets = db.prepare('SELECT COUNT(*) as count FROM toilets').get().count;
+  const stickersPerToilet = db
+    .prepare('SELECT toilet_id, COUNT(*) as count FROM stickers GROUP BY toilet_id')
+    .all();
+  const recentStickers = db
+    .prepare('SELECT COUNT(*) as count FROM stickers WHERE created_at > datetime("now", "-7 days")')
+    .get().count;
+  const totalEvents = db.prepare('SELECT COUNT(*) as count FROM analytics').get().count;
+
+  res.json({
+    totalStickers,
+    totalToilets,
+    stickersPerToilet,
+    recentStickers,
+    totalEvents,
   });
 });
 

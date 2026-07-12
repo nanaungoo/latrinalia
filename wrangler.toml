@@ -1,0 +1,14 @@
+name = "latrinalia"
+main = "src/worker/index.js"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "latrinalia-db"
+database_id = "f68b7ac8-4bd8-4a4e-af41-ce17de26e02e"
+
+# Static assets for Pages (if using unified deployment)
+# [site]
+# bucket = "dist"

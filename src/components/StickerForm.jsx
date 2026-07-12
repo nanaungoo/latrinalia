@@ -5,13 +5,24 @@ const FONT_NAMES = {
   scratched: 'Scratched',
   cursive: 'Cursive',
   stencil: 'Stencil',
+  myanmar: 'Myanmar',
 };
+
+const EMOJI_LIST = [
+  '😀', '😂', '🤣', '😎', '🤔', '😴', '🤢', '💀',
+  '👻', '🤡', '💩', '👽', '🤖', '🎃', '🔥', '❤️',
+  '👍', '👎', '🙏', '💪', '🫡', '🤙', '✌️', '🫶',
+  '🚽', '💩', '🧻', '🪠', '🚿', '🧼', '🪥', '🪒',
+  '⭐', '🌈', '🎵', '🎮', '📱', '💻', '🚗', '✈️',
+  '🎉', '🎊', '🎂', '🍕', '🍔', '🍺', '☕', '🧋',
+];
 
 export default function StickerForm({ fonts, colors, onSubmit }) {
   const [text, setText] = useState('');
   const [font, setFont] = useState('marker');
   const [color, setColor] = useState('#000000');
   const [collapsed, setCollapsed] = useState(true);
+  const [showEmojis, setShowEmojis] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,6 +34,11 @@ export default function StickerForm({ fonts, colors, onSubmit }) {
     });
     setText('');
     setCollapsed(true);
+    setShowEmojis(false);
+  };
+
+  const handleEmojiClick = (emoji) => {
+    setText((prev) => prev + emoji);
   };
 
   if (collapsed) {
@@ -43,7 +59,30 @@ export default function StickerForm({ fonts, colors, onSubmit }) {
         rows={3}
         maxLength={500}
       />
+
+      {showEmojis && (
+        <div className="emoji-picker">
+          {EMOJI_LIST.map((emoji, i) => (
+            <button
+              key={i}
+              type="button"
+              className="emoji-btn"
+              onClick={() => handleEmojiClick(emoji)}
+            >
+              {emoji}
+            </button>
+          ))}
+        </div>
+      )}
+
       <div className="form-controls">
+        <button
+          type="button"
+          className={`emoji-toggle ${showEmojis ? 'active' : ''}`}
+          onClick={() => setShowEmojis(!showEmojis)}
+        >
+          😀
+        </button>
         <div className="font-picker">
           {Object.entries(FONT_NAMES).map(([key, label]) => (
             <button

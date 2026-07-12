@@ -9,6 +9,16 @@ A Progressive Web App that brings the age-old culture of anonymous toilet graffi
 
 **🔗 Live:** [latrinalia-production.up.railway.app](https://latrinalia-production.up.railway.app)
 
+## Features
+
+- 🚻 **Anonymous graffiti** — Write anything, no login required
+- 😀 **Emoji picker** — Add emojis to your stickers
+- 🇲🇲 **Myanmar font support** — Write in မြန်မာစာ with Noto Sans Myanmar
+- 👆 **Drag & drop** — Move stickers anywhere on the wall
+- 🧹 **Janitor mode** — Auto-clean old stickers
+- 📱 **PWA** — Install on your phone like a native app
+- 🌙 **Dark theme** — Easy on eyes at night
+
 ## Screenshots
 
 | Lobby | Stall Wall | Compose | Janitor | Clean Stall |
@@ -19,8 +29,10 @@ A Progressive Web App that brings the age-old culture of anonymous toilet graffi
 
 1. Pick a stall from the lobby
 2. Scribble your anonymous text — pick a font, a color, and slap it on the door
-3. Drag any sticker to reposition it anywhere on the canvas
-4. A janitor sweeps old stickers periodically so the wall stays fresh
+3. Use the 😀 button to add emojis to your graffiti
+4. Choose Myanmar font (🇲🇲) for မြန်မာစာ text
+5. Drag any sticker to reposition it anywhere on the canvas
+6. A janitor sweeps old stickers periodically so the wall stays fresh
 
 ## Tech stack
 
@@ -58,7 +70,8 @@ A Progressive Web App that brings the age-old culture of anonymous toilet graffi
 │   └── components/
 │       ├── StallCanvas.jsx       # Canvas overlay with drag layer
 │       ├── DraggableSticker.jsx  # Individual draggable text sticker
-│       └── StickerForm.jsx       # Compose new graffiti sticker
+│       ├── StickerForm.jsx       # Compose new graffiti sticker
+│       └── WelcomePopup.jsx      # First-time user instruction popup
 ├── dist/                   # Production build output
 ├── supabase/
 │   └── migrations/         # Reference SQL schemas
