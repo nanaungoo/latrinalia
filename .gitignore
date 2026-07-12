@@ -4,5 +4,7 @@ dist/
 *.db-shm
 *.db-wal
 .env
+.env.*
 .playwright-mcp/
+.wrangler/
 /*.png
