@@ -1,13 +1,13 @@
 # 🚽 Latrinalia — Digital Toilet Graffiti Wall
 
-[![Live](https://img.shields.io/badge/Live-🟢_Online-brightgreen?style=flat-square)](https://latrinalia.nannaungoo.workers.dev)
+[![Live](https://img.shields.io/badge/Live-🟢_Online-brightgreen?style=flat-square)](https://weathered-heart-9488.nannaungoo.workers.dev)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
-[![Cloudflare Workers](https://img.shields.io/badge/Deployed-Cloudflare_Workers-f48120?style=flat-square&logo=cloudflare&logoColor=white)](https://workers.cloudflare.com)
+[![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers_+_D1-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://workers.cloudflare.com)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
 
 A Progressive Web App that brings the age-old culture of anonymous toilet graffiti into the digital age. Drop text stickers on virtual stall doors, drag them around, and let the next person find your message.
 
-**🔗 Live:** [latrinalia.nannaungoo.workers.dev](https://latrinalia.nannaungoo.workers.dev)
+**🔗 Live:** [weathered-heart-9488.nannaungoo.workers.dev](https://weathered-heart-9488.nannaungoo.workers.dev)
 
 ## Features
 
@@ -16,13 +16,13 @@ A Progressive Web App that brings the age-old culture of anonymous toilet graffi
 - 🇲🇲 **Myanmar font support** — Write in မြန်မာစာ with Noto Sans Myanmar
 - 👆 **Drag & drop** — Move stickers anywhere on the wall
 - 🧹 **Janitor mode** — Auto-clean old stickers
-- 📊 **Visit counter** — See how many people have used the wall
+- 📊 **Analytics** — Visit counter and sticker stats
 - 📱 **PWA** — Install on your phone like a native app
 - 🌙 **Dark theme** — Easy on eyes at night
 
 ## Screenshots
 
-> Screenshots captured with Chrome DevTools MCP at fixed resolutions.
+> Captured with Chrome DevTools at fixed resolutions.
 > **Desktop:** 1280 × 800 · **Mobile:** 390 × 844
 
 ### Desktop (1280 × 800)
@@ -52,7 +52,8 @@ A Progressive Web App that brings the age-old culture of anonymous toilet graffi
 |-------|------|
 | Frontend | React 18 + Vite (canvas-based drag-and-drop via `react-draggable`) |
 | Backend | Cloudflare Workers (edge-native REST API) |
-| Database | Cloudflare D1 (SQLite at the edge) |
+| Database | [Cloudflare D1](https://developers.cloudflare.com/d1/) (serverless SQLite) |
+| Runtime | [Cloudflare Workers](https://workers.cloudflare.com/) — global edge network |
 | AI tooling | Claude Code with D1 MCP server, a graffiti-wall skill, and a sticker-reviewer content-moderation agent |
 | PWA | `manifest.json` + 192/512px icons — installable from Chrome |
 | CI/CD | GitHub Actions → Cloudflare Workers (auto-deploy on push to `main`) |
@@ -62,7 +63,7 @@ A Progressive Web App that brings the age-old culture of anonymous toilet graffi
 ```
 .
 ├── index.html              # Vite entry point
-├── vite.config.js          # Vite + React plugin, proxies /api → worker
+├── vite.config.js          # Vite + React plugin
 ├── wrangler.toml           # Cloudflare Workers config (D1 binding)
 ├── .mcp.json               # D1 MCP server config for Claude
 ├── package.json
@@ -70,29 +71,28 @@ A Progressive Web App that brings the age-old culture of anonymous toilet graffi
 │   ├── manifest.json       # PWA manifest
 │   ├── icon-192.png
 │   └── icon-512.png
-├── server/
-│   └── index.js            # Express API (local dev fallback)
-├── scripts/
-│   └── db-init.js          # Seed script for dev/test data
 ├── src/
+│   ├── worker/
+│   │   ├── index.js            # Cloudflare Worker entry (router)
+│   │   ├── middleware/
+│   │   │   └── rateLimit.js    # IP-based rate limiting
+│   │   └── routes/
+│   │       ├── toilets.js      # Toilets CRUD
+│   │       ├── stickers.js     # Stickers CRUD + janitor
+│   │       └── analytics.js    # Event tracking + visit counter
 │   ├── main.jsx            # React entry point
 │   ├── App.jsx             # Lobby → StallCanvas router (with visit counter)
 │   ├── index.css           # Global styles (dark stall theme)
 │   ├── lib/
 │   │   └── api.js          # fetch wrappers for the REST API
-│   ├── components/
-│   │   ├── StallCanvas.jsx       # Canvas overlay with drag layer
-│   │   ├── DraggableSticker.jsx  # Individual draggable text sticker
-│   │   ├── StickerForm.jsx       # Compose new graffiti sticker
-│   │   └── WelcomePopup.jsx      # First-time user instruction popup
-│   └── worker/
-│       ├── index.js            # Cloudflare Worker entry (router)
-│       ├── middleware/
-│       │   └── rateLimit.js    # IP-based rate limiting
-│       └── routes/
-│           ├── toilets.js      # Toilets CRUD
-│           ├── stickers.js     # Stickers CRUD + janitor
-│           └── analytics.js    # Event tracking + visit counter
+│   └── components/
+│       ├── StallCanvas.jsx       # Canvas overlay with drag layer
+│       ├── DraggableSticker.jsx  # Individual draggable text sticker
+│       ├── StickerForm.jsx       # Compose new graffiti sticker
+│       └── WelcomePopup.jsx      # First-time user instruction popup
+├── server/                 # Legacy Express server (local dev fallback)
+├── scripts/
+│   └── db-init.js          # Seed script for dev/test data
 ├── dist/                   # Production build output
 ├── .github/
 │   └── workflows/
@@ -113,28 +113,33 @@ npm run dev
 
 # Or run the Express fallback server (:3001)
 npm run server
+
+# Build the frontend for production
+npm run build
 ```
+
+> **Note:** The Vite dev server proxies `/api` requests to `http://localhost:8787` (Wrangler) or `http://localhost:3001` (Express fallback).
 
 ## Database
 
-The production database uses Cloudflare D1 (auto-provisioned). For local dev, Wrangler spins up a local D1 instance automatically.
+The production database uses Cloudflare D1. For local dev, Wrangler spins up a local D1 instance automatically.
 
 ```bash
-# Initialize / reset the local database with seed data
-npm run db:init
+# View database info and usage stats
+npx wrangler d1 info latrinalia-db
 ```
 
-Three default stalls are seeded: Downtown, The Bar, and Gas Station.
+Three default stalls are seeded on first request: Downtown, The Bar, and Gas Station.
 
 ## API
 
 | Method | Path | Description |
 |--------|------|-------------|
 | `GET` | `/api/toilets` | List all stalls |
-| `GET` | `/api/toilets/:id/stickers` | Get stickers on a stall |
-| `POST` | `/api/toilets/:id/stickers` | Add a sticker |
-| `DELETE` | `/api/stickers/:id` | Remove a sticker (requires `delete_token`) |
-| `POST` | `/api/toilets/:id/janitor` | Sweep stickers older than N days |
+| `GET` | `/api/toilets/:id/stickers` | Get stickers on a stall (delete tokens excluded) |
+| `POST` | `/api/toilets/:id/stickers` | Add a sticker (returns `delete_token`) |
+| `DELETE` | `/api/stickers/:id` | Remove a sticker (requires `?delete_token=` or `X-Delete-Token` header) |
+| `POST` | `/api/toilets/:id/janitor` | Sweep stickers older than N days (body: `{ "days": 7 }`) |
 | `POST` | `/api/analytics` | Track a custom event |
 | `GET` | `/api/analytics` | Get analytics summary (visit count, sticker stats) |
 
@@ -148,14 +153,12 @@ This project uses three Claude Code features, all with real paths in the repo:
 
 ## Deployment
 
-This project is deployed on [Cloudflare Workers](https://workers.cloudflare.com). Pushes to `main` auto-deploy via GitHub Actions.
+This project is deployed on [Cloudflare Workers](https://workers.cloudflare.com/) + [D1](https://developers.cloudflare.com/d1/). Pushes to `main` auto-deploy via GitHub Actions.
 
 ```bash
 # Deploy manually via CLI
-npx wrangler deploy --config wrangler.toml
-
-# Or just push to GitHub
-git push origin main
+npm run build
+npx wrangler deploy
 ```
 
 **GitHub secret required:**
@@ -170,11 +173,23 @@ git push origin main
 |---------|----------|
 | `DB` | D1 Database (`latrinalia-db`) |
 
+### Free plan limits
+
+Cloudflare Workers free tier comfortably handles this app:
+
+| Resource | Free Allowance | Typical Latrinalia Usage |
+|----------|---------------|--------------------------|
+| Worker requests | 100,000/day | negligible (< 100/day) |
+| D1 storage | 5 GB | ~70 kB |
+| D1 rows read | 5,000,000/month | ~2,000/month |
+| D1 rows written | 100,000/month | ~400/month |
+
 ## Building for production
 
 ```bash
-npm run build     # Outputs to dist/
-npm run preview   # Preview the production build locally
+npm run build          # Outputs to dist/
+npx wrangler dev       # Preview locally (frontend + Worker API)
+npx wrangler deploy    # Deploy to Cloudflare's global edge network
 ```
 
-The Cloudflare Worker serves the API and static assets directly.
+The Cloudflare Worker serves the API and static assets directly at the edge.
