@@ -58,8 +58,8 @@ Latrinalia — Digital Toilet Graffiti Wall
 
 ## Backend
 
-- **Express.js** — REST API on port 3001
-- **Node.js** — runtime
+- **Cloudflare Workers** — edge-native REST API
+- **Hono** — lightweight routing framework
 
 ### API Endpoints
 
@@ -70,13 +70,13 @@ Latrinalia — Digital Toilet Graffiti Wall
 | `POST` | `/api/toilets/:id/stickers` | Add a sticker |
 | `DELETE` | `/api/stickers/:id` | Remove a sticker |
 | `POST` | `/api/toilets/:id/janitor` | Sweep stickers older than N days |
+| `GET` | `/api/analytics/visits` | Visit counter |
 
 ---
 
 ## Database
 
-- **SQLite** — via `better-sqlite3` (WAL mode)
-- Auto-creates on first server start if `latrinalia.db` doesn't exist
+- **Cloudflare D1** — serverless SQLite at the edge
 - Default stalls: Downtown, The Bar, Gas Station
 
 ---
@@ -103,14 +103,13 @@ Latrinalia — Digital Toilet Graffiti Wall
 
 ## Deployment
 
-- **Railway** — auto-deploy on push to `main`
-- Single `node server/index.js` serves full app in production
+- **Cloudflare Workers** — auto-deploy on push to `main` via GitHub Actions
+- Static assets served from `dist/` via Workers asset binding
+- D1 database bound via `wrangler.toml`
 
 ### Environment Variables
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `PORT` | Server port | `3001` |
-| `DB_PATH` | SQLite database path | `./latrinalia.db` |
-| `CORS_ORIGIN` | Allowed CORS origin | `*` |
-| `NODE_ENV` | Environment | `development` |
+| `CLOUDFLARE_API_TOKEN` | API token for deployment | — |
+| `ACCOUNT_ID` | Cloudflare account ID | — |

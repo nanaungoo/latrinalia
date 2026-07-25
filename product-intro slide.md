@@ -47,7 +47,7 @@ section.lead h1 { border-bottom:none; }
 
 ## Anonymous toilet graffiti — digitised and preserved, one stall at a time
 
-**NanAungOo** · @nanaungoo · latrinalia-production.up.railway.app
+**NanAungOo** · @nanaungoo · weathered-heart-9488.nannaungoo.workers.dev
 
 ---
 
@@ -66,7 +66,7 @@ npm install
 npm run dev
 ```
 
-Stack — **React 18 · Express.js · SQLite · Vite** · Built with Claude Code
+Stack — **React 18 · Cloudflare Workers · D1 · Vite** · Built with Claude Code
 
 ---
 
@@ -82,6 +82,6 @@ Stack — **React 18 · Express.js · SQLite · Vite** · Built with Claude Code
 
 # Link များ
 
-- **Live:** https://latrinalia-production.up.railway.app
+- **Live:** https://weathered-heart-9488.nannaungoo.workers.dev
 - **Repo:** github.com/nanaungoo/latrinalia
 - **License:** MIT
