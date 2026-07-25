@@ -47,7 +47,7 @@ section.lead h1 { border-bottom:none; }
 
 ## Anonymous toilet graffiti — digitised and preserved, one stall at a time
 
-**NanAungOo** · @nanaungoo · weathered-heart-9488.nannaungoo.workers.dev
+**NanAungOo** · @nanaungoo · nanaungoo.dpdns.org
 
 ---
 
@@ -82,6 +82,6 @@ Stack — **React 18 · Cloudflare Workers · D1 · Vite** · Built with Claude 
 
 # Link များ
 
-- **Live:** https://weathered-heart-9488.nannaungoo.workers.dev
+- **Live:** https://nanaungoo.dpdns.org
 - **Repo:** github.com/nanaungoo/latrinalia
 - **License:** MIT

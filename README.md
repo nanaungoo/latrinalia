@@ -1,13 +1,13 @@
 # 🚽 Latrinalia — Digital Toilet Graffiti Wall
 
-[![Live](https://img.shields.io/badge/Live-🟢_Online-brightgreen?style=flat-square)](https://weathered-heart-9488.nannaungoo.workers.dev)
+[![Live](https://img.shields.io/badge/Live-🟢_Online-brightgreen?style=flat-square)](https://nanaungoo.dpdns.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
 [![Cloudflare](https://img.shields.io/badge/Cloudflare-Workers_+_D1-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://workers.cloudflare.com)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
 
 A Progressive Web App that brings the age-old culture of anonymous toilet graffiti into the digital age. Drop text stickers on virtual stall doors, drag them around, and let the next person find your message.
 
-**🔗 Live:** [weathered-heart-9488.nannaungoo.workers.dev](https://weathered-heart-9488.nannaungoo.workers.dev)
+**🔗 Live:** [nanaungoo.dpdns.org](https://nanaungoo.dpdns.org)
 
 ## Features
 

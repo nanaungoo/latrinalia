@@ -169,7 +169,7 @@ strong {
 </div>
 
 <div class="qr-container">
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://weathered-heart-9488.nannaungoo.workers.dev/" alt="Latrinalia App QR Code">
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://nanaungoo.dpdns.org/" alt="Latrinalia App QR Code">
   <div class="qr-text"> ⬆️ စကန်ဖတ်ပြီး ရင်ဖွင့်လိုက်! </div>
 </div>
 
