@@ -1,21 +1,82 @@
-MIT License
+Custom Royalty License
 
 Copyright (c) 2026 NanAungOo
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. DEFINITIONS
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+   "Software" means the latrinalia software and associated documentation files.
+   "Author" means NanAungOo.
+   "Commercial Use" means any use of the Software that generates revenue, whether
+   direct or indirect, including but not limited to: selling, licensing,
+   SaaS offerings, embedding in a paid product, or using in a business
+   context that generates income.
+   "Non-Commercial Use" means personal, educational, charitable, or
+   open-source project use where no revenue is generated from the Software.
+   "Net Revenue" means all gross revenue directly or indirectly attributable
+   to the use of the Software, minus applicable taxes and payment processing fees.
+
+2. NON-COMMERCIAL USE
+
+   Permission is hereby granted, free of charge, to any person or entity
+   using the Software for Non-Commercial Use, to use, copy, modify, merge,
+   publish, and distribute copies of the Software, subject to the following
+   conditions:
+
+   a) The above copyright notice and this permission notice shall be included
+      in all copies or substantial portions of the Software.
+
+3. COMMERCIAL USE
+
+   Any person or entity using the Software for Commercial Use must obtain
+   a commercial license from the Author and pay a royalty fee equal to
+   five percent (5%) of Net Revenue generated from the use of the Software.
+
+   a) Royalty payments must be made on a quarterly basis, within 30 days
+      of the end of each calendar quarter.
+
+   b) Users must maintain accurate records of all revenue attributable to
+      the Software and provide such records upon request.
+
+   c) A written commercial license agreement must be signed with the Author
+      before any Commercial Use begins. Contact: [your email here]
+
+4. REDISTRIBUTION
+
+   a) Non-Commercial redistribution is permitted provided this license
+      is included in all copies.
+
+   b) Commercial redistribution requires a separate commercial license
+      and is subject to the royalty fee described in Section 3.
+
+5. RESTRICTIONS
+
+   You may not:
+   a) Remove or alter any copyright, trademark, or license notices.
+   b) Use the Author's name, trademarks, or endorsement without permission.
+   c) Sublicense the Software without a commercial license agreement.
+
+6. WARRANTY DISCLAIMER
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   THE SOFTWARE.
+
+7. TERMINATION
+
+   This license terminates automatically if you fail to comply with any of
+   its terms. Upon termination, you must cease all use and destroy all copies
+   of the Software.
+
+8. GOVERNING LAW
+
+   This license shall be governed by and construed in accordance with the
+   laws of Myanmar. Any disputes arising under this license shall be resolved
+   in the courts of Myanmar.
+
+For commercial licensing inquiries, contact: nannaungoo@gmail.com 
