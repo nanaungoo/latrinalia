@@ -149,28 +149,10 @@ strong {
 <!-- slide 6 -->
 # 📋 The Janitor's Log (ပြီးစီးမှု မှတ်တမ်း)
 
-<div class="two-column">
-
-<div class="done-list">
-
 - 📢 အများပြည်သူ ဝင်ရေးလို့ရပြီ (Repo is public)
 - 🤖 စက်ရုပ်တွေနဲ့ အလုပ်လုပ်ထားတယ် (MCP + Skill + Agent integrated)
 - 💔 fa တွေအသဲကွဲလို့ရပြီ (forever alone)
 
-<div class="tip-jar">
-  <div class="tip-jar-content">
-    <strong>🧻 Keep the bathroom open!</strong><br>
-    Server/VPS တွေဆက်သုံးနိုင်ဖို့နဲ့ သန့်ရှင်းရေးသမားကိုကာဖေးတိုက်ချင်ရင် ➡️  <br>
-    <a href="https://buymeacoffee.com/nanaungoo" class="bmc-button">☕ ကာဖေးတိုက်မယ်</a>
-  </div>
-  <img src="qr-code.png" alt="Buy Me A Coffee Custom QR">ကာဖေး
-</div>
-
-</div>
-
-<div class="qr-container">
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://nanaungoo.dpdns.org/" alt="Latrinalia App QR Code">
-  <div class="qr-text"> ⬆️ စကန်ဖတ်ပြီး ရင်ဖွင့်လိုက်! </div>
-</div>
-
-</div>
+🧻 Keep the bathroom open!
+    Server/VPS တွေဆက်သုံးနိုင်ဖို့နဲ့ သန့်ရှင်းရေးသမားကိုကာဖေးတိုက်ချင်ရင်
+    https://buymeacoffee.com/nanaungoo 
